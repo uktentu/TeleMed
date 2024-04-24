@@ -33,23 +33,29 @@
           <th>Description</th>
           <th>Date</th>
           <th>Status</th>
+          <th>Action</th> <!-- New column for action (button or message) -->
         </tr>
       </thead>
       {% for a in appointments %}
       <tr>
-        <td> {{a.doctorName}}</td>
-        <td>{{a.description}}</td>
-        <td>{{a.appointmentDate}}</td>
-        {%if a.status%}
-        <td> <span class="label label-primary">Confirmed</span></td>
+        <td>{{ a.doctorName }}</td>
+        <td>{{ a.description }}</td>
+        <td>{{ a.appointmentDate }}</td>
+        {% if a.status %}
+        <td><span class="label label-primary">Confirmed</span></td>
+        <td> <!-- New cell for the button -->
+          <a href="https://meet-clone-87aff.web.app/?id=-NuYiSeKIvquomz9Q-{{ a.doctorName }}{{ patient.mobile }}" target="_blank" class="btn btn-primary btn-meet">Call/Video Call</a>
+        </td>
         {% else %}
-        <td> <span class="label label-success">Pending</span></td>
+        <td><span class="label label-success">Pending</span></td>
+        <td> <!-- New cell for the message -->
+          Meeting is yet to be scheduled
+        </td>
         {% endif %}
       </tr>
       {% endfor %}
     </table>
   </div>
 </div>
-
 
 {% endblock content %}

@@ -1,57 +1,78 @@
-{% extends 'hospital/homebase.html' %} 
-{% load static %} 
-{% block content %} 
-  <head> 
-    <style media="screen"> 
-      body { 
-        font-family: 'Open Sans', sans-serif; 
-        font-size: 16px; 
-        /* font-weight: 100px; */
-      } 
-      .jumbotron { 
-        margin-top: 0px; 
-        margin-bottom: 0px; 
-        background-image: url('{% static "images/back.png" %}'); 
-        background-size: cover; 
-        background-repeat: no-repeat; 
-        /* filter: blur(0.9rem);  */
-      } 
-      .jumbotron h5, h3 { 
-        text-align: center; 
-        font-weight: 500;
-      } 
-      .alert { 
-        margin: 0px; 
-      } 
-      .btn { 
-        border-radius: 20px; 
-        transition: background-color 0.3s, box-shadow 0.3s; 
-      } 
-      .btn:hover { 
-        background-color: #f00; 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-      } 
-    </style> 
-  </head> 
-  <br> 
-  <br> 
-  <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;"> 
-    <br> 
-    <h5 class="display-3 glow"></h5> 
-    <br> 
-    <p> 
-      <h3>Get the Best Care Remotely</h3> 
-      <p class="lead"> 
-        <a class="btn btn-primary btn-lg" href="/patientclick" role="button">Make an Appointment</a> 
-      </p> 
-    </p>
-    <br> 
-  </div> 
-  <br> 
-  <br> 
-  <br> 
-  {% include "hospital/admin_doctor_patient_card.html" %} 
-  <br> 
-  <br> 
-  <br> 
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url("{% static 'images/back.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 60px;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #f00;
+            border-color: rgb(252, 95, 95);
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #d00;
+            border-color: #d00;
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Get the Best Care Remotely</h3>
+            <p class="lead">Book an appointment with top doctors today!</p>
+            <a class="btn btn-primary btn-lg" href="/patientclick" role="button">Make an Appointment</a>
+        </div>
+
+        <!-- Include your other content here -->
+        {% include "hospital/admin_doctor_patient_card.html" %}
+    </div>
+</body>
+</html>
 {% endblock content %}

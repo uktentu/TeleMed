@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 300px;
-      margin: auto;
-      text-align: center;
-      font-family: arial;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-    .title {
-      color: grey;
-      font-size: 18px;
-    }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+            align-items: center;
+        }
 
-    button {
-      border: none;
-      outline: 0;
-      display: inline-block;
-      padding: 8px;
-      color: white;
-      background-color: #000;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      font-size: 18px;
-    }
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            width: 280px; /* Fixed height for all cards */
+        }
 
-    button:hover,
-    a:hover {
-      opacity: 0.7;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 10px;
-    }
+        .card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
 
-    a:link {
-      text-decoration: none;
-    }
+        .title {
+            font-size: 18px;
+            color: #555;
+            margin: 15px 0;
+            text-align: center;
+        }
 
-    a {
-      color: white;
-    }
-  </style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            background-color: #f00;
+            color: #fff;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d00;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+    </style>
 </head>
 
 <body>
 
+    <div class="grid-container">
+        <div class="card">
+            <img src="{% static 'images/admin.png' %}" alt="Admin">
+            <div class="title">ADMIN</div>
+            <div class="button-container">
+                <button><a href="/adminclick">View</a></button>
+            </div>
+        </div>
 
+        <div class="card">
+            <img src="{% static 'images/doctor.png' %}" alt="Doctor">
+            <div class="title">DOCTOR</div>
+            <div class="button-container">
+                <button><a href="/doctorclick">View</a></button>
+            </div>
+        </div>
 
-  <div class="grid-container">
-    <div class="grid-item">
-      <div class="card">
-        <img src="{% static "images/admin.png" %}" alt="John" style="width:100%">
-        <p class="title">ADMIN</p>
-        <p><button><a href="/adminclick">View</a></button></p>
-      </div>
-
+        <div class="card">
+            <img src="{% static 'images/patient.jpg' %}" alt="Patient">
+            <div class="title">PATIENT</div>
+            <div class="button-container">
+                <button><a href="/patientclick">View</a></button>
+            </div>
+        </div>
     </div>
-
-    <div class="grid-item">
-      <div class="card">
-        <img src="{% static "images/doctor.png" %}" alt="John" style="width:100%">
-        <p class="title">DOCTOR</p>
-        <p><button><a href="/doctorclick">View</a></button></p>
-      </div>
-    </div>
-
-    <div class="grid-item">
-      <div class="card">
-        <img src="{% static "images/patient.jpg" %}" alt="John" style="width:100%">
-        <p class="title">PATIENT</p>
-        <p><button><a href="/patientclick">View</a></button></p>
-      </div>
-    </div>
-
-  </div>
- 
 
 </body>
 
